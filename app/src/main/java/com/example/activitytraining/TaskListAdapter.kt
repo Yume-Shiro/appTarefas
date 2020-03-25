@@ -4,10 +4,10 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.activity_main.view.*
-import kotlinx.android.synthetic.main.recycler_item.*
 import kotlinx.android.synthetic.main.recycler_item.view.*
 
 class TaskListAdapter (private val tasks: MutableList<Task>, private val context: Context) : RecyclerView.Adapter<TaskListAdapter.ViewHolder>() {
@@ -26,6 +26,12 @@ class TaskListAdapter (private val tasks: MutableList<Task>, private val context
 
         holder.title.text = task.title
         holder.description.text = task.description
+        holder.button.setOnClickListener {
+
+            tasks.remove(tasks[position])
+            notifyDataSetChanged()
+
+        }
 
     }
 
@@ -33,6 +39,7 @@ class TaskListAdapter (private val tasks: MutableList<Task>, private val context
 
         val title: TextView = itemView.title_task
         val description: TextView = itemView.description_task
+        val button: Button = itemView.btn_remove
 
     }
 

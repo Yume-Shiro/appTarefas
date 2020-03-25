@@ -35,9 +35,5 @@ class SecondActivity : AppCompatActivity() {
 
         recycler.adapter = TaskListAdapter(list, this)
 
-//        btn_remove.setOnClickListener {
-//            Toast.makeText(applicationContext, "botão clicado", Toast.LENGTH_LONG).show()
-//
-//        }
     }
 }
